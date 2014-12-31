@@ -1,6 +1,7 @@
 from pymarkovchain import MarkovChain
 import time
 import pyttsx
+from textstat.textstat import textstat
 
 
 # setup voice
@@ -22,10 +23,11 @@ for i in range(100):
   while len(string) < 120:
     string = mc.generateString() + "."
   print string
+  print "Readability Score: %s" % textstat.dale_chall_readability_score(string)
   with open("generated_strings.txt",'a+') as f:
-    f.write(string + '\n')
+    f.write(string + '\n' +'\n')
   engine.say(string)
-  time.sleep(2)
+  time.sleep(1)
   engine.setProperty('rate', rate)
   rate += 1
   engine.runAndWait()
