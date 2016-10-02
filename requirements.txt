@@ -1,0 +1,3 @@
+PyMarkovChain==1.8
+pyttsx==1.1
+textstat==0.2

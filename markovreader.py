@@ -5,7 +5,7 @@ from textstat.textstat import textstat
 
 
 # setup voice
-rate = 30
+rate = 20
 engine = pyttsx.init()
 engine.setProperty('rate', rate)
 
@@ -23,13 +23,13 @@ for i in range(100):
   while len(string) < 120:
     string = mc.generateString() + "."
   print string
-  print "Readability Score: %s" % textstat.dale_chall_readability_score(string)
+  # print "Readability Score: %s" % textstat.dale_chall_readability_score(string)
   with open("generated_strings.txt",'a+') as f:
     f.write(string + '\n' +'\n')
   engine.say(string)
-  time.sleep(1)
-  engine.setProperty('rate', rate)
-  rate += 1
+  time.sleep(5)
+  # engine.setProperty('rate', rate)
+  # rate += 1
   engine.runAndWait()
   i += 1
 
